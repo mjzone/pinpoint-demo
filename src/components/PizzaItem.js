@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Checkbox } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles({
       margin: "20px 20px"
     },
   });
-const PizzaItem = ({ pizza, addToCart }) => {
+const PizzaItem = ({ pizza, selectItem }) => {
     const classes = useStyles();
 
     return (
@@ -34,7 +35,7 @@ const PizzaItem = ({ pizza, addToCart }) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="medium" color="secondary">Add to cart</Button>
+                <Checkbox value={pizza.name} onChange={selectItem}/>
             </CardActions>
         </Card>
     )

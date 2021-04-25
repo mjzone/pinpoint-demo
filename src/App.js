@@ -4,12 +4,15 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+
 import Store from './pages/Store';
 import Checkout from './pages/Checkout';
 
 const App = () => {
   return (
     <Router>
+      <AmplifySignOut/>
       <Switch>
         <Route exact path="/checkout">
             <Checkout/>
@@ -25,4 +28,4 @@ const App = () => {
   )
 }
 
-export default App
+export default withAuthenticator(App)
