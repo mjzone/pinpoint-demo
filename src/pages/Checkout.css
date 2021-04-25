@@ -1,0 +1,16 @@
+.checkout {
+    display: flex;
+    justify-content: center;
+}
+
+.checkout__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkout__body > span {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
