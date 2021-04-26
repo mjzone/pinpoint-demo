@@ -1,11 +1,11 @@
 {
     "appName": "pd01",
-    "roleName": "pinpointLambdaRolea1c23d27",
-    "cloudformationPolicyName": "cloudformationPolicya1c23d27",
-    "cloudWatchPolicyName": "cloudWatchPolicya1c23d27",
-    "pinpointPolicyName": "pinpointPolicya1c23d27",
-    "authPolicyName": "pinpoint_amplify_a1c23d27",
-    "unauthPolicyName": "pinpoint_amplify_a1c23d27",
+    "roleName": "pinpointLambdaRole0e521903",
+    "cloudformationPolicyName": "cloudformationPolicy0e521903",
+    "cloudWatchPolicyName": "cloudWatchPolicy0e521903",
+    "pinpointPolicyName": "pinpointPolicy0e521903",
+    "authPolicyName": "pinpoint_amplify_0e521903",
+    "unauthPolicyName": "pinpoint_amplify_0e521903",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },

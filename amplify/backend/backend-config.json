@@ -1,6 +1,6 @@
 {
   "auth": {
-    "pd0108898e33": {
+    "pd010cad7381": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

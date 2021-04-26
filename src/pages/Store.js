@@ -45,7 +45,7 @@ const Store = () => {
         Analytics.updateEndpoint({
             address: user.attributes.email,
             attributes: {
-                cart,
+                cart: cart,
                 purchased: ['Yes']
             },
             channelType: 'EMAIL',
@@ -60,12 +60,12 @@ const Store = () => {
             name: 'AddToCart',
             attributes: { purchased: 'No' }
         });
-
         Analytics.updateEndpoint({
             address: user.attributes.email,
             attributes: {
-                cart,
-                purchased: ['No']
+                cart: cart,
+                purchased: ['No'],
+                userName: [user.username]
             },
             channelType: 'EMAIL',
         });
