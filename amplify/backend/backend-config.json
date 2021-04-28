@@ -1,6 +1,6 @@
 {
   "auth": {
-    "pd010cad7381": {
+    "pizzastore2c419e14": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
@@ -8,7 +8,7 @@
     }
   },
   "analytics": {
-    "pd01": {
+    "pizzastore": {
       "service": "Pinpoint",
       "providerPlugin": "awscloudformation"
     }

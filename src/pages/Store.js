@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-//import { Analytics, Auth } from 'aws-amplify';
+import { Analytics, Auth } from 'aws-amplify';
 import "./Store.css"
 import Button from '@material-ui/core/Button';
 import PizzaItem from '../components/PizzaItem';
@@ -10,12 +10,12 @@ const Store = () => {
     const [cart, setCart] = useState([]);
     const [user, setUser] = useState(null);
 
-    // useEffect(() => {
-    //     Auth
-    //         .currentAuthenticatedUser({ bypassCache: false })
-    //         .then(user => setUser(user))
-    //         .catch(err => console.log(err));
-    // }, []);
+    useEffect(() => {
+        Auth
+            .currentAuthenticatedUser({ bypassCache: false })
+            .then(user => setUser(user))
+            .catch(err => console.log(err));
+    }, []);
 
     const pizzaCatalogue = [
         {
@@ -37,38 +37,42 @@ const Store = () => {
 
     const handleCheckout = (e) => {
         e.preventDefault();
-        // Analytics.record({
-        //     name: 'Checkout',
-        //     attributes: { purchased: 'Yes' }
-        // });
-
-        // Analytics.updateEndpoint({
-        //     address: user.attributes.email,
-        //     attributes: {
-        //         cart: cart,
-        //         purchased: ['Yes']
-        //     },
-        //     channelType: 'EMAIL',
-        // });
-
-        history.push('/checkout');
+        Analytics.updateEndpoint({
+            address: user.attributes.email,
+            attributes: {
+                cart: cart,
+                purchased: ['Yes']
+            },
+            channelType: 'EMAIL',
+            optOut: 'NONE',
+            userAttributes: {
+                username: [user.username]
+            },
+            userId: user.attributes.email,
+        }).then(() => {
+            Analytics.record({ name: 'Checkout' }).then(() => {
+                history.push('/checkout');
+            })
+        })
     }
 
     const addToCart = (e) => {
         e.preventDefault();
-        // Analytics.record({
-        //     name: 'AddToCart',
-        //     attributes: { purchased: 'No' }
-        // });
-        // Analytics.updateEndpoint({
-        //     address: user.attributes.email,
-        //     attributes: {
-        //         cart: cart,
-        //         purchased: ['No'],
-        //         userName: [user.username]
-        //     },
-        //     channelType: 'EMAIL',
-        // });
+        Analytics.updateEndpoint({
+            address: user.attributes.email,
+            attributes: {
+                cart: cart,
+                purchased: ['No']
+            },
+            channelType: 'EMAIL',
+            optOut: 'NONE',
+            userAttributes: {
+                username: [user.username]
+            },
+            userId: user.attributes.email,
+        }).then(() => {
+            Analytics.record({ name: 'AddToCart' });
+        })
     }
 
     const selectItem = (e) => {

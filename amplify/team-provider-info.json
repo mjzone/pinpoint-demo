@@ -1,19 +1,19 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-pd01-dev-84523-authRole",
-      "UnauthRoleArn": "arn:aws:iam::885121665536:role/amplify-pd01-dev-84523-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::885121665536:role/amplify-pd01-dev-84523-authRole",
+      "AuthRoleName": "amplify-pizzastore-dev-235930-authRole",
+      "UnauthRoleArn": "arn:aws:iam::885121665536:role/amplify-pizzastore-dev-235930-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::885121665536:role/amplify-pizzastore-dev-235930-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-pd01-dev-84523-deployment",
-      "UnauthRoleName": "amplify-pd01-dev-84523-unauthRole",
-      "StackName": "amplify-pd01-dev-84523",
-      "StackId": "arn:aws:cloudformation:us-east-1:885121665536:stack/amplify-pd01-dev-84523/b7dc3510-a63d-11eb-bee4-0e08ce19eddf",
-      "AmplifyAppId": "d2iv3j94ldy259"
+      "DeploymentBucketName": "amplify-pizzastore-dev-235930-deployment",
+      "UnauthRoleName": "amplify-pizzastore-dev-235930-unauthRole",
+      "StackName": "amplify-pizzastore-dev-235930",
+      "StackId": "arn:aws:cloudformation:us-east-1:885121665536:stack/amplify-pizzastore-dev-235930/952331a0-a786-11eb-862f-120e6de30a9d",
+      "AmplifyAppId": "dpir2ayg0ojqk"
     },
     "categories": {
       "auth": {
-        "pd010cad7381": {}
+        "pizzastore2c419e14": {}
       }
     }
   }
