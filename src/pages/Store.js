@@ -35,9 +35,10 @@ const Store = () => {
         }
     ];
 
-    const handleCheckout = (e) => {
+    const handleCheckout = async (e) => {
         e.preventDefault();
-        Analytics.updateEndpoint({
+        // Update the endpoint
+        await Analytics.updateEndpoint({
             address: user.attributes.email,
             attributes: {
                 cart: cart,
@@ -49,16 +50,16 @@ const Store = () => {
                 username: [user.username]
             },
             userId: user.attributes.email,
-        }).then(() => {
-            Analytics.record({ name: 'Checkout' }).then(() => {
-                history.push('/checkout');
-            })
         })
+        // Send checkout event
+        await Analytics.record({ name: 'Checkout' });
+        history.push('/checkout');
     }
 
-    const addToCart = (e) => {
+    const addToCart = async (e) => {
         e.preventDefault();
-        Analytics.updateEndpoint({
+        // Create or update the endpoint
+        await Analytics.updateEndpoint({
             address: user.attributes.email,
             attributes: {
                 cart: cart,
@@ -70,9 +71,9 @@ const Store = () => {
                 username: [user.username]
             },
             userId: user.attributes.email,
-        }).then(() => {
-            Analytics.record({ name: 'AddToCart' });
         })
+        // Send add to cart event
+        await Analytics.record({ name: 'AddToCart' });
     }
 
     const selectItem = (e) => {
